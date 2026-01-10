@@ -5,11 +5,17 @@ public class Configuracion{
     private static final String mapaMayusculas = "EFGHIJKLMÑNOPQRSTUVWXYZABCD";
     private String claveVigenere;
 
-    //validar la clave que entre el usuario
     public void setClaveVigenere(String clave){
         for(var it : clave.toCharArray()){
-
+            char a = it;
+            if((a>='A' && a<='Z') || a=='Ñ') continue;
+            else{
+                System.out.println("ERROR. Clave invalida.");
+                return;
+            }
         }
+
+        System.out.println("Clave establecida: " + clave);
     }
 
     //getters
@@ -18,4 +24,5 @@ public class Configuracion{
     public String getMapaMayusculas(){ return mapaMayusculas; }
     public String getMapaMinusculas(){ return mapaMinusculas; }
     public String getClave(){ return claveVigenere; }
+
 }
