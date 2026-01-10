@@ -38,8 +38,8 @@ public class Controlador {
             case 1 -> configClave();
             case 2 -> cifrarSust();
             case 3 -> descifrarSust();
-            //case 4 -> cifrarVig();
-            //case 5 -> descifrarVig();
+            case 4 -> cifrarVig();
+            case 5 -> descifrarVig();
             case 6 -> mostrarMapa();
             case 7 -> mostrarClave();
             case 8 -> System.out.println("saliendo...");
@@ -48,29 +48,50 @@ public class Controlador {
     }
 
     private void configClave(){
-        System.out.print("Ingrese la clave Vigenere: ");
-        String clave = in.nextLine().trim().toUpperCase();
+        System.out.print(">Ingrese la clave Vigenere: ");
+        String clave = in.nextLine().toUpperCase();
         config.setClaveVigenere(clave);
     }
 
     private void cifrarSust(){
-        System.out.print("Texto a cifrar: ");
+        System.out.print(">Texto a cifrar: ");
         String texto = in.nextLine();
-        System.out.println("Texto cifrado: " + sust.cifrar(texto));
+        System.out.println(">Texto cifrado: " + sust.cifrar(texto));
     }
 
     private void descifrarSust(){
-        System.out.print("Texto a descifrar: ");
+        System.out.print(">Texto a descifrar: ");
         String texto = in.nextLine();
-        System.out.println("Texto descifrado: " + sust.descifrar(texto));
+        System.out.println(">Texto descifrado: " + sust.descifrar(texto));
+    }
+
+    private void cifrarVig(){
+        if(config.getClave() == null) {
+            System.out.println(">No se ha establecido una clave.");
+            return;
+        }
+        System.out.print(">Texto a cifrar: ");
+        String texto = in.nextLine();
+        System.out.println(">Texto cifrado: " + vig.cifrar(texto));
+    }
+
+    private void descifrarVig(){
+        if(config.getClave() == null) {
+            System.out.println(">No se ha establecido una clave.");
+            return;
+        }
+        System.out.print(">Texto a descifrar: ");
+        String texto = in.nextLine();
+        System.out.println(">Texto descifrado: " + vig.descifrar(texto));
     }
 
     private void mostrarMapa(){
-        System.out.println("Mapa de letras mayusculas: " + config.getMapaMayusculas());
-        System.out.println("Mapa de letras minusculas " + config.getMapaMinusculas());
+        System.out.println(">Mapa de letras mayusculas: " + config.getMapaMayusculas());
+        System.out.println(">Mapa de letras minusculas " + config.getMapaMinusculas());
     }
 
     private void mostrarClave(){
-        System.out.println("Clave Vigenere: " + config.getClave());
+        String clave = config.getClave();
+        System.out.println(clave == null ? ">No se ha establecido una clave." : ">Clave Vigenere: " + clave);
     }
 }

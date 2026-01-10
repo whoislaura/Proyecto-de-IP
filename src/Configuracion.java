@@ -6,16 +6,20 @@ public class Configuracion{
     private String claveVigenere;
 
     public void setClaveVigenere(String clave){
+        if(clave.isEmpty()){
+            System.out.println(">ERROR. Clave invalida.");
+            return;
+        }
         for(var it : clave.toCharArray()){
             char a = it;
             if((a>='A' && a<='Z') || a=='Ñ') continue;
             else{
-                System.out.println("ERROR. Clave invalida.");
+                System.out.println(">ERROR. Clave invalida.");
                 return;
             }
         }
-
-        System.out.println("Clave establecida: " + clave);
+        claveVigenere = clave;
+        System.out.println(">Clave establecida: " + claveVigenere);
     }
 
     //getters
