@@ -11,13 +11,14 @@ public class Controlador {
 
         do{
             mostrarMenu();
-            System.out.print("Elige una opción: ");
+            System.out.print("Elige una opción(1-8): ");
             opcion = in.nextLine();
             elegirOpcion(enteroValido(opcion));
         }while(!opcion.equals("8"));
     }
 
     private void mostrarMenu(){
+        System.out.println("---------------------------------");
         System.out.println("1. Configurar clave Vigenère.");
         System.out.println("2. Cifrar texto (Sustitucion).");
         System.out.println("3. Descifrar texto (Sustitucion).");
@@ -47,7 +48,7 @@ public class Controlador {
             case 6 -> mostrarMapa();
             case 7 -> mostrarClave();
             case 8 -> System.out.println(">Saliendo...");
-            default -> System.out.println(">ERROR. Opción no válida.");
+            default -> System.out.println(">Opción no válida. Intente de nuevo.");
         }
     }
 

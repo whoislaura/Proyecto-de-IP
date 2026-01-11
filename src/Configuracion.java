@@ -7,14 +7,14 @@ public class Configuracion{
 
     public void setClaveVigenere(String clave){
         if(clave.isEmpty()){
-            System.out.println(">ERROR. Clave no válida.");
+            System.out.println(">ERROR. Clave no válida. Intente de nuevo.");
             return;
         }
         for(var it : clave.toCharArray()){
             char a = it;
             if((a>='A' && a<='Z') || a=='Ñ') continue;
             else{
-                System.out.println(">ERROR. Clave no válida.");
+                System.out.println(">ERROR. Clave no válida. Intente de nuevo.");
                 return;
             }
         }
