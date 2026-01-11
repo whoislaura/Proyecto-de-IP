@@ -1,8 +1,8 @@
 public class Configuracion{
-    private static final String letrasMayusculas = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-    private static final String letrasMinusculas = "abcdefghijklmnñopqrstuvwxyz";
-    private static final String mapaMinusculas = "efghijklmnñopqrstuvwxyzabcd";
-    private static final String mapaMayusculas = "EFGHIJKLMNÑOPQRSTUVWXYZABCD";
+    private static final String letrasMayusculas = "AÁBCDEÉFGHIÍJKLMNÑOÓPQRSTUÚÜVWXYZ";
+    private static final String letrasMinusculas = "aábcdeéfghiíjklmnñoópqrstuúüvwxyz";
+    private static final String mapaMinusculas = "eéfghiíjklmnñoópqrstuúüvwxyzaábcd";
+    private static final String mapaMayusculas = "EÉFGHIÍJKLMNÑOÓPQRSTUÚÜVWXYZAÁBCD";
     private String claveVigenere;
 
     public void setClaveVigenere(String clave){
@@ -12,7 +12,7 @@ public class Configuracion{
         }
         for(var it : clave.toCharArray()){
             char a = it;
-            if((a>='A' && a<='Z') || a=='Ñ') continue;
+            if((a>='A' && a<='Z') || a=='Ñ' || a=='Á' || a=='É' || a=='Í' || a=='Ó' || a=='Ú' || a=='Ü') continue;
             else{
                 System.out.println(">ERROR. Clave no válida. Intente de nuevo.");
                 return;

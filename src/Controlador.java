@@ -13,6 +13,7 @@ public class Controlador {
             mostrarMenu();
             System.out.print("Elige una opción(1-8): ");
             opcion = in.nextLine();
+            System.out.println("---------------------------------");
             elegirOpcion(enteroValido(opcion));
         }while(!opcion.equals("8"));
     }
